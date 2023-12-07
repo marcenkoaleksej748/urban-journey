@@ -1,0 +1,14 @@
+        init(image: Binding<UIImage?>, showScreen: Binding<Bool>) {
+            self._image = image
+            self._showScreen = showScreen
+        }
+        
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            guard let newImage = info[.originalImage] as? UIImage else { return }
+            image = newImage
+            showScreen = false
+        }
+        
+    }
+}
+
